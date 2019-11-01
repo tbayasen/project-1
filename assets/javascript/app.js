@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var firebaseConfig = {
   apiKey: "AIzaSyBBKQgmkoGusn-CCK6_b2Pp5mh0uaeT0Sc",
   authDomain: "project-food-48382.firebaseapp.com",
@@ -11,7 +10,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+
 
 //store global variables
 var a = "";
@@ -19,7 +18,7 @@ var b = "";
 var c = "";
 var d = "";
 var database = firebase.database();
- 
+
 //Zomato API
 //No set function yet, just linking the API
 //ONLY 1000 QUERIES PER DAY!!!!!
@@ -38,7 +37,7 @@ function TBD() {
 }
 
 //search button
-$("#").on("click", function(event) {
+$("#").on("click", function (event) {
   //prevent refresh on user press 'enter'
   event.preventDefault();
   //pull and store values from input form
@@ -49,32 +48,7 @@ $("#").on("click", function(event) {
 
   //
 });
-=======
-
-
-$(document).ready(function () {
 
 
 
-  $('.carousel').carousel();
 
-
-  var firebaseConfig = {
-    apiKey: "AIzaSyBBKQgmkoGusn-CCK6_b2Pp5mh0uaeT0Sc",
-    authDomain: "project-food-48382.firebaseapp.com",
-    databaseURL: "https://project-food-48382.firebaseio.com",
-    projectId: "project-food-48382",
-    storageBucket: "project-food-48382.appspot.com",
-    messagingSenderId: "392755218679",
-    appId: "1:392755218679:web:2f531484e721ae0c346bf2",
-    measurementId: "G-PLG5EV7X6P"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-
-});
-
-
->>>>>>> f357364e642508460f7eb726b93a54288f2be9de

@@ -1,3 +1,25 @@
 form {
-    background-color: white;
+    background-color: rgba(255, 237, 197, 0.788);
+    border-radius: 25px;
+  color: white;
+    padding: 20px;
+    width: 100%;
+    height: 200px;
+    -webkit-box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.849);
+    -moz-box-shadow: 1px -1px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.877);
+}
+
+#zip, #Cuisine {
+    -webkit-box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.849);
+    -moz-box-shadow: 1px -1px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.877);
+    border-radius: 5px;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.63);
+
+}
+
+#brandname, #searchform, #userSname, #subbtn {
+    font-family: 'McLaren', cursive;
 }

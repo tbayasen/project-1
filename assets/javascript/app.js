@@ -10,7 +10,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+
 
 //store global variables
 var a = "";
@@ -18,7 +18,7 @@ var b = "";
 var c = "";
 var d = "";
 var database = firebase.database();
- 
+
 //Zomato API
 //No set function yet, just linking the API
 //ONLY 1000 QUERIES PER DAY!!!!!
@@ -36,8 +36,14 @@ function TBD() {
     });
 }
 
+
+$("#modalLoginForm").addClass("show")
+
+$("#modalLoginForm").attr("style", "display: block")
+
+
 //search button
-$("#").on("click", function(event) {
+$("#test").on("click", function (event) {
   //prevent refresh on user press 'enter'
   event.preventDefault();
   //pull and store values from input form
@@ -47,4 +53,10 @@ $("#").on("click", function(event) {
   d = $("#").val().trim();
 
   //
+
+
+
+
+
+
 });

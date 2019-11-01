@@ -12,6 +12,13 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+//store global variables
+var a = "";
+var b = "";
+var c = "";
+var d = "";
+var database = firebase.database();
+ 
 //Zomato API
 //No set function yet, just linking the API
 //ONLY 1000 QUERIES PER DAY!!!!!
@@ -28,3 +35,16 @@ function TBD() {
       var results = response.data;
     });
 }
+
+//search button
+$("#").on("click", function(event) {
+  //prevent refresh on user press 'enter'
+  event.preventDefault();
+  //pull and store values from input form
+  a = $("#").val().trim();
+  b = $("#").val().trim();
+  c = $("#").val().trim();
+  d = $("#").val().trim();
+
+  //
+});

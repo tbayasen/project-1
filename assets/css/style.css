@@ -21,6 +21,11 @@ form {
     font-family: 'McLaren', cursive;
 }
 
+#header {
+   position: absolute; 
+   top: 0;
+   
+}
 
 
 

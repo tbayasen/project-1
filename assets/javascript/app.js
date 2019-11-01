@@ -38,7 +38,6 @@ function TBD() {
 
 
 $("#modalLoginForm").addClass("show")
-
 $("#modalLoginForm").attr("style", "display: block")
 
 
@@ -53,10 +52,4 @@ $("#test").on("click", function (event) {
   d = $("#").val().trim();
 
   //
-
-
-
-
-
-
 });

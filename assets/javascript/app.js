@@ -42,7 +42,7 @@ $("#modalLoginForm").attr("style", "display: block")
 
 
 //search button
-$("#test").on("click", function (event) {
+$("#").on("click", function (event) {
   //prevent refresh on user press 'enter'
   event.preventDefault();
   //pull and store values from input form
@@ -53,3 +53,7 @@ $("#test").on("click", function (event) {
 
   //
 });
+
+
+
+

@@ -1,7 +1,7 @@
 form {
     background-color: rgba(255, 237, 197, 0.788);
     border-radius: 25px;
-  color: white;
+    color: white;
     padding: 20px;
     width: 100%;
     height: 200px;
@@ -17,14 +17,41 @@ form {
     padding: 2px;
     background-color: rgba(255, 255, 255, 0.63);
 }
-#brandname, #searchform, #userSname, #subbtn {
+#brandname, #searchform, #userSname, #subbtn, #login, .media-body {
     font-family: 'McLaren', cursive;
+}
+
+.media-body {
+    background-color: rgba(255, 237, 197, 0.788);
+    border-radius: 25px;
+    color: white;
+    padding: 20px;
+    width: 125px;
+    height: 100px;
+    margin: auto;
+    box-sizing: border-box;
+    -webkit-box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.849);
+    -moz-box-shadow: 1px -1px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.877);
+    
+}
+
+#mediaImage {
+    border-radius: 10px;
+    padding: 0px;
+    margin: auto;
+    height: 150px;
+    width: 200px;
 }
 
 #header {
    position: absolute; 
    top: 0;
    
+}
+
+h5 {
+    color:
 }
 
 

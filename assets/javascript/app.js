@@ -19,32 +19,38 @@ var c = "";
 var d = "";
 var database = firebase.database();
 
+var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
+var queryURL = "";
+
 //Zomato API
 //No set function yet, just linking the API
 //ONLY 1000 QUERIES PER DAY!!!!!
-function TBD() {
   //After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
   //queryURL parameters still need to be set to limit how much data is displayed
-  var apiKey = "fc5adeded0912b9cf54d85989a2e7ae9"
-  var queryURL = 'https://developers.zomato.com/api/v2.1/' + '&api_key=' + apiKey
-  $.ajax({
-    url: queryURL,
-    method: 'GET'
-  })
-    .then(function (response) {
-      var results = response.data;
-    });
-}
+
 
 //search button
-$("#").on("click", function (event) {
+$("#subbtn").on("click", function () {
   //prevent refresh on user press 'enter'
   event.preventDefault();
   //pull and store values from input form
-  a = $("#").val().trim();
-  b = $("#").val().trim();
-  c = $("#").val().trim();
-  d = $("#").val().trim();
+  cuisine = $("#Cuisine").val().trim();
+  zip = $("#zip").val().trim();
+  queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=' + cuisine + '&limit=50&location=' + zip;
+  console.log(queryURL)
 
-  //
+  $.ajax({
+    url: queryURL,
+    headers: {
+    "accept":"application/json",
+    "Access-Control-Allow-Origin":"*",
+    "Authorization": `Bearer ${apiKey}`
+    },
+    dataType: 'json',
+  }).then(function(response) {
+    console.log(queryURL)
+      var results = response.data;
+      console.log(response)
+      console.log(results)
+    });
 });

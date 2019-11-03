@@ -47,12 +47,19 @@ form {
 #header {
    position: absolute; 
    top: 0;
+   line-height: 45px;
    
 }
 
 h5 {
     color:
 }
+
+#body-media {
+    width: ;
+}
+
+
 
 
 

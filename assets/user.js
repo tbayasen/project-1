@@ -6,13 +6,13 @@ $(document).ready(function () {
 
 
     //this is just for test, delete DELETE LATER AFTER FORM IMPLEMENTAITAODFNAKSDFN
-    location = "sacramento";
+    // location = "sacramento";
 
     //get the cuisine type
     var cuisineType = $("#cuisine-type");
 
     //this is just for test, delete DELETE LATER AFTER FORM IMPLEMENTAITAODFNAKSDFN
-    cuisineType = "sushi";
+    // cuisineType = "sushi";
 
     //a variable to hold the location id
     var locationId;
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
 
         locationId = response.location_suggestions[0].id;
-
+        console.log(locationId)
 
 
 

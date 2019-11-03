@@ -36,7 +36,7 @@ $("#subbtn").on("click", function () {
   //pull and store values from input form
   cuisine = $("#Cuisine").val().trim();
   zip = $("#zip").val().trim();
-  queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=' + cuisine + '&limit=50&location=' + zip;
+  queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=' + cuisine + '&limit=20&location=' + zip;
   console.log(queryURL)
 
   $.ajax({
@@ -49,8 +49,23 @@ $("#subbtn").on("click", function () {
     dataType: 'json',
   }).then(function(response) {
     console.log(queryURL)
-      var results = response.data;
-      console.log(response)
-      console.log(results)
+    console.log(response)
+    console.log(response.businesses)
+
+    //set variables
+    var i = 0;
+    var results = response.businesses;
+
+    console.log(name);
+
+    //iterate through json array
+    for (i = 0; i < 20; i++) {
+      console.log("Restaurant name: " + results[i].name);
+      console.log("Phone number: " + results[i].display_phone);
+      console.log("Menu Price: " + results[i].price);
+      console.log("Restaurant rating: " + results[i].rating);
+      console.log("Restaurant location: " + results[i].location.display_address[1] + ", " + results[i].location.display_address[2]);
+      console.log("-----------------");
+    }
     });
 });

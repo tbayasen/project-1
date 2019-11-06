@@ -39,6 +39,8 @@ $("#subbtn").on("click", function () {
   queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=' + cuisine + '&limit=20&location=' + zip;
   console.log(queryURL)
 
+
+
   $.ajax({
     url: queryURL,
     headers: {
@@ -53,19 +55,34 @@ $("#subbtn").on("click", function () {
     console.log(response.businesses)
 
     //set variables
-    var i = 0;
+    var count = 0;
     var results = response.businesses;
 
     console.log(name);
 
     //iterate through json array
-    for (i = 0; i < 20; i++) {
-      console.log("Restaurant name: " + results[i].name);
-      console.log("Phone number: " + results[i].display_phone);
-      console.log("Menu Price: " + results[i].price);
-      console.log("Restaurant rating: " + results[i].rating);
-      console.log("Restaurant location: " + results[i].location.display_address[1] + ", " + results[i].location.display_address[2]);
+    for (count = 0; count < response.businesses.length; count++) {
+      var restaurantDiv = $("<div>");
+      restaurantDiv.attr("id", "restaurantDisplay");
+
+      console.log(results[0]);
+      console.log("Restaurant name: " + results[count].name);
+      console.log("Phone number: " + results[count].display_phone);
+      console.log("Menu Price: " + results[count].price);
+      console.log("Restaurant rating: " + results[count].rating);
+      console.log("Restaurant location: " + results[count].location.display_address)
       console.log("-----------------");
+
+      //append display div to html
+      $(".container").append(restaurantDiv);
+      var text = $(restaurantDiv).html(
+        "Restaurant name: " + results[count].name + 
+        "<br>" + "Phone number: " + results[count].display_phone + "<br>" + 
+        "Menu Price: " + results[count].price + "<br>" + 
+        "Restaurant rating: " + results[count].rating + "<br>" + 
+        "Restaurant location: " + results[count].location.display_address + "<br>");
+
+      continue;
     }
     });
 });

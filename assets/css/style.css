@@ -21,6 +21,14 @@ form {
     font-family: 'McLaren', cursive;
 }
 
+#restaurantDisplay {
+    width: 720px;
+    height: 110px;
+    padding: auto;
+    background-color: white;
+    border: 2px solid black;
+}
+
 
 
 

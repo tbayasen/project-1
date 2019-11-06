@@ -11,7 +11,6 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
 //store global variables
 var a = "";
 var b = "";
@@ -34,8 +33,8 @@ $("#subbtn").on("click", function () {
   //prevent refresh on user press 'enter'
   event.preventDefault();
   //pull and store values from input form
-  cuisine = $("#Cuisine").val().trim();
-  zip = $("#zip").val().trim();
+  cuisine = $("#cuisine-type").val().trim();
+  zip = $("#user-location").val().trim();
   queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=' + cuisine + '&limit=20&location=' + zip;
   console.log(queryURL)
 
@@ -53,19 +52,46 @@ $("#subbtn").on("click", function () {
     console.log(response.businesses)
 
     //set variables
-    var i = 0;
+    var count = 0;
     var results = response.businesses;
+    var cardText = [];
+
+    localStorage.clear();
+    localStorage.setItem("businessArr", JSON.stringify(results));
 
     console.log(name);
 
     //iterate through json array
-    for (i = 0; i < 20; i++) {
-      console.log("Restaurant name: " + results[i].name);
-      console.log("Phone number: " + results[i].display_phone);
-      console.log("Menu Price: " + results[i].price);
-      console.log("Restaurant rating: " + results[i].rating);
-      console.log("Restaurant location: " + results[i].location.display_address[1] + ", " + results[i].location.display_address[2]);
+    for (count = 0; count < response.businesses.length; count++) {
+      var img = $("<img>");
+      var imgURL = results[count].image_url;
+      img.attr("src", imgURL);
+      img.attr("height", "40");
+      img.attr("width", "40")
+      var imgDiv = $("<div>")
+
+      var restaurantDiv = $("<div>");
+      restaurantDiv.attr("id", "restaurantDisplay");
+
+      console.log(results[count]);
+      console.log("Restaurant name: " + results[count].name);
+      console.log("Phone number: " + results[count].display_phone);
+      console.log("Menu Price: " + results[count].price);
+      console.log("Restaurant rating: " + results[count].rating);
+      console.log("Restaurant location: " + results[count].location.display_address)
       console.log("-----------------");
+
+      // var text = 
+      //   "Restaurant name: " + results[count].name + 
+      //   "<br>" + "Phone number: " + results[count].display_phone + "<br>" + 
+      //   "Menu Price: " + results[count].price + "<br>" + 
+      //   "Restaurant rating: " + results[count].rating + "<br>" + 
+      //   "Restaurant location: " + results[count].location.display_address + "<br>"
+
+      // cardText.push(text);
+
+      location.href = "Separate-Pages/users.html";
     }
+    console.log(cardText)
   });
 });

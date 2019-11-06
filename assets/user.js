@@ -58,6 +58,11 @@ $(document).ready(function () {
     })
 
 
+    // $(document).ready(function () {
+    //     $('.carousel').carousel();
+    // });
+
+    // var instance = M.Carousel.getInstance(elem);
 
 
 })

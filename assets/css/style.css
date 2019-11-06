@@ -69,6 +69,7 @@ nav {
 #header {
    position: absolute; 
    top: 0;
+   line-height: 45px;
    
 }
 #subbtn {
@@ -79,6 +80,12 @@ nav {
 h5 {
     color: white;
 }
+
+#body-media {
+    width: ;
+}
+
+
 
 
 

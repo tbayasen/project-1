@@ -1,3 +1,7 @@
+body {
+    background-image: url("foodie.jpg");
+}
+
 form {
     background-color: rgba(255, 237, 197, 0.788);
     border-radius: 25px;
@@ -51,6 +55,7 @@ form {
 #header {
    position: absolute; 
    top: 0;
+   line-height: 45px;
    
 }
 #subbtn {
@@ -62,5 +67,25 @@ h5 {
     color: white;
 }
 
+#body-media {
+    width: ;
+}
 
+#restaurantDisplay {
+    
+    height: 125px;
+    width: 800px;
+    background-color: white;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+}
 
+image {
+    width: 40px;
+    height: 40px;
+}
+
+#content {
+    position: relative;
+}

@@ -18,31 +18,21 @@
     <!-- link css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!-- link materialize css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection" />
 </head>​
 
 <body>
-    <nav id="header">
-        <div class=" nav-wrapper teal lighten-2">
-            <a href="index.html" class="brand-logo center" id="brandname">FOODIE</a>
-            <ul class="left hide-on-med-and-down">
-                <li><a href="sass.html" id="userSname">Users </a></li>
-                ​
-                ​
-            </ul>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="" data-toggle="modal" data-target="#modalLoginForm" id="login">Login</a></li>
-        </div>  ​
+    ​<nav class="navbar fixed-top text-center"
+        style="text-decoration: none; background-color: #4db6acd2; color: white">
+        <a href="" id="login">Users</a>
+        <a id="word" class="navbar-brand" href="index.html">FOODIE</a>
+        <a href="" data-toggle="modal" data-target="#modalLoginForm" id="login">Login</a>
     </nav>
-    ​
     <br>
     <br>
     <br>
     ​<br>
 
-    <div id="x" class="container">​
+    <div class="container">​
         <form>
             <div class="form-row" id="searchform">
                 <div class="form-group col-md-6">
@@ -58,8 +48,10 @@
             <a href="Separate-Pages/users.html" type="submit" class="btn btn-primary" id="subbtn">Search</a>
         </form>
     </div>
+
     <br>
     <br>
+
     <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -82,13 +74,6 @@
                         <input type="password" id="defaultForm-pass" class="form-control validate">
                         <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
                     </div>
-                    ​
-                </div>
-                ​
-                <div class="md-form mb-4">
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <input type="password" id="defaultForm-pass" class="form-control validate">
-                    <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
                 </div>
             </div>
 
@@ -97,6 +82,7 @@
             </div>
         </div>
     </div>
+
     <br>
     <br>
     <br>
@@ -105,8 +91,7 @@
     <br>
     <br>
 
-
-    <Div id="content" class="container">
+    <div id="content" class="container">
         <ul class="list-unstyled">
             <li class="media">
                 <img src="./assets/images/users.jpg" class="mr-3" alt="..." id="mediaImage">
@@ -131,12 +116,11 @@
                 <div class="media-body">
                     <h5 class="mt-0-mb-1">Rate, Rate, Rate!</h5>
                     Loved the service at that new ice cream shop? Let others know! Rate the local places you've been
-                    to
-                    and help others decide if that place is for them.
+                    to and help others decide if that place is for them.
                 </div>
             </li>
         </ul>
-    </Div>
+    </div>
 </body>
 <!-- put all scripts before app.js -->
 <!-- link jQuery & AJAX -->

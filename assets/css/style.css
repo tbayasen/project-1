@@ -52,12 +52,7 @@ form {
     width: 200px;
 }
 
-#header {
-   position: absolute; 
-   top: 0;
-   line-height: 45px;
-   
-}
+
 #subbtn {
     background-color: teal;
     color: teal;
@@ -67,19 +62,24 @@ h5 {
     color: white;
 }
 
-#body-media {
-    width: ;
+
+#word {
+    margin: auto;
+    font-family: 'McLaren', cursive;
+    color: white;
+    padding: 8px;
+    font-size: 40px;
 }
 
-#restaurantDisplay {
-    
-    height: 125px;
-    width: 800px;
-    background-color: white;
-    margin: auto;
-    padding: auto;
-    text-align: center;
+#login {
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    font-size: 25px;
+    font-family: 'McLaren', cursive;
 }
+
+
 
 image {
     width: 40px;

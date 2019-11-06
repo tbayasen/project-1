@@ -25,8 +25,8 @@ var queryURL = "";
 //Zomato API
 //No set function yet, just linking the API
 //ONLY 1000 QUERIES PER DAY!!!!!
-  //After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
-  //queryURL parameters still need to be set to limit how much data is displayed
+//After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
+//queryURL parameters still need to be set to limit how much data is displayed
 
 
 //search button
@@ -44,12 +44,12 @@ $("#subbtn").on("click", function () {
   $.ajax({
     url: queryURL,
     headers: {
-    "accept":"application/json",
-    "Access-Control-Allow-Origin":"*",
-    "Authorization": `Bearer ${apiKey}`
+      "accept": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Authorization": `Bearer ${apiKey}`
     },
     dataType: 'json',
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(queryURL)
     console.log(response)
     console.log(response.businesses)
@@ -65,6 +65,7 @@ $("#subbtn").on("click", function () {
       var restaurantDiv = $("<div>");
       restaurantDiv.attr("id", "restaurantDisplay");
 
+      console.log(results[count]);
       console.log(results[0]);
       console.log("Restaurant name: " + results[count].name);
       console.log("Phone number: " + results[count].display_phone);
@@ -84,5 +85,5 @@ $("#subbtn").on("click", function () {
 
       continue;
     }
-    });
+  });
 });

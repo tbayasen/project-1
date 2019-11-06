@@ -2,13 +2,23 @@
     font-family: 'McLaren', cursive;
 }
 
-#header {
-   position: absolute; 
-   top: 0;
-   
+#word {
+    margin: auto;
+    font-family: 'McLaren', cursive;
+    color: white;
+    padding: 8px;
+    font-size: 40px;
 }
 
-.card, #card-full {
+#login {
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    font-size: 25px;
+    font-family: 'McLaren', cursive;
+}
+
+.card, #card-top {
     background-color: rgba(255, 237, 197, 0.788);
     border-radius: 25px;
   color: black;
@@ -21,3 +31,4 @@
 #carousel {
     text-align: left;
 }
+

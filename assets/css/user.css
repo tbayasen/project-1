@@ -1,0 +1,23 @@
+#brandname, #searchform, #userSname, #subbtn {
+    font-family: 'McLaren', cursive;
+}
+
+#header {
+   position: absolute; 
+   top: 0;
+   
+}
+
+.card, #card-full {
+    background-color: rgba(255, 237, 197, 0.788);
+    border-radius: 25px;
+  color: black;
+    padding: 20px;
+    -webkit-box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.849);
+    -moz-box-shadow: 1px -1px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.877);
+}
+
+#carousel {
+    text-align: left;
+}

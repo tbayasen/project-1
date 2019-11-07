@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-html,body {
-    background-image: url("./foodie.jpg");
-    margin-top: 0 auto;
-    padding: 0 auto; 
-=======
 body {
     background-image: url("foodie.jpg");
->>>>>>> f120ef55143db6a82432669b22564879cd1f2803
 }
 
 form {
@@ -29,18 +22,15 @@ form {
     padding: 2px;
     background-color: rgba(255, 255, 255, 0.63);
 }
-<<<<<<< HEAD
-
-#brandname, #searchform, #userSname, #subbtn {
-    font-family: 'McLaren', cursive;
-}
 
 nav {
     position: absolute;
     top: 0;
+    opacity: 0.8;
+    border-radius: 30px;
 }
-=======
-#brandname, #searchform, #userSname, #subbtn, #login, .media-body {
+
+#brandname, #searchform, #userSname, #subbtn, .media-body {
     font-family: 'McLaren', cursive;
 }
 
@@ -73,8 +63,9 @@ nav {
 
 
 #subbtn {
-    background-color: teal;
-    color: teal;
+    background-color: rgb(233, 33, 33);
+    color: white;
+    border-radius: 25% 10%;
 }
 
 h5 {
@@ -84,7 +75,7 @@ h5 {
 
 #word {
     margin: auto;
-    font-family: 'McLaren', cursive;
+    font-family: 'Dancing Script', cursive;
     color: white;
     padding: 8px;
     font-size: 40px;
@@ -95,7 +86,9 @@ h5 {
     color: white;
     padding: 8px;
     font-size: 25px;
-    font-family: 'McLaren', cursive;
+    font-family: 'Dancing Script', cursive;
+} #login:hover {
+    text-decoration-style: wavy;
 }
 
 
@@ -105,12 +98,7 @@ image {
     height: 40px;
 }
 
-<<<<<<< HEAD
-
-
->>>>>>> ebfb3be20f9f93b154961d3b14fead8c4dc1e034
-=======
 #content {
     position: relative;
 }
->>>>>>> f120ef55143db6a82432669b22564879cd1f2803
+

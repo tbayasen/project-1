@@ -71,7 +71,6 @@ $.ajax({
 
 
 });
-});
 
 //After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
 //queryURL parameters still need to be set to limit how much data is displayed

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 html,body {
     background-image: url("./foodie.jpg");
     margin-top: 0 auto;
     padding: 0 auto; 
+=======
+body {
+    background-image: url("foodie.jpg");
+>>>>>>> f120ef55143db6a82432669b22564879cd1f2803
 }
 
 form {
@@ -95,7 +100,17 @@ h5 {
 
 
 
+image {
+    width: 40px;
+    height: 40px;
+}
 
+<<<<<<< HEAD
 
 
 >>>>>>> ebfb3be20f9f93b154961d3b14fead8c4dc1e034
+=======
+#content {
+    position: relative;
+}
+>>>>>>> f120ef55143db6a82432669b22564879cd1f2803

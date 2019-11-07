@@ -12,14 +12,15 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 //store global variables
-var a = "";
-var b = "";
-var c = "";
-var d = "";
 var database = firebase.database();
 
 var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
-var queryURL = "";
+var yelpAPI = "";
+var yelpSearchURL = "";
+var yelpDetailsURL = "";
+var yelpReviewsURL = "";
+var autocomplete = "";
+var limit = 20;
 
 //Zomato API
 //No set function yet, just linking the API
@@ -35,63 +36,57 @@ $("#subbtn").on("click", function () {
   //pull and store values from input form
   cuisine = $("#cuisine-type").val().trim();
   zip = $("#user-location").val().trim();
-  queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=' + cuisine + '&limit=20&location=' + zip;
-  console.log(queryURL)
+  yelpAPI = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3'
+  yelpSearchURL = yelpAPI + '/businesses/search?term=' + cuisine + '&limit='+ limit + '&location=' + zip;
+  // yelpDetailsURL = yelpAPI + '/businesses/' + businessID;
+  // yelpReviewsURL = yelpAPI + '/businesses/' + businessID + '/reviews';
+  autocomplete = yelpAPI + '/' + autocomplete;
+  console.log(yelpSearchURL)
 
   $.ajax({
-    url: queryURL,
+    url: yelpSearchURL,
     headers: {
       "accept": "application/json",
       "Access-Control-Allow-Origin": "*",
       "Authorization": `Bearer ${apiKey}`
     },
     dataType: 'json',
-  }).then(function (response) {
-    console.log(queryURL)
-    console.log(response)
-    console.log(response.businesses)
+  }).then(function (searchResults) {
+    console.log(yelpSearchURL)
+    console.log(searchResults)
+    console.log(searchResults.businesses)
 
     //set variables
     var count = 0;
-    var results = response.businesses;
-    var cardText = [];
+    var results = searchResults.businesses;
+    var businessIDArr = [];
+    var businessID;
 
     localStorage.clear();
-    localStorage.setItem("businessArr", JSON.stringify(results));
 
     console.log(name);
 
     //iterate through json array
-    for (count = 0; count < response.businesses.length; count++) {
-      var img = $("<img>");
-      var imgURL = results[count].image_url;
-      img.attr("src", imgURL);
-      img.attr("height", "40");
-      img.attr("width", "40")
-      var imgDiv = $("<div>")
+    for (count = 0; count < results.length; count++) {
+      //push businessID to businessIDArr
+      businessID =  results[count].id;
+      businessIDArr.push(businessID);
 
-      var restaurantDiv = $("<div>");
-      restaurantDiv.attr("id", "restaurantDisplay");
-
+      console.log(businessIDArr)
       console.log(results[count]);
       console.log("Restaurant name: " + results[count].name);
+      console.log("Business ID: " + businessID);
       console.log("Phone number: " + results[count].display_phone);
       console.log("Menu Price: " + results[count].price);
       console.log("Restaurant rating: " + results[count].rating);
       console.log("Restaurant location: " + results[count].location.display_address)
       console.log("-----------------");
-
-      // var text = 
-      //   "Restaurant name: " + results[count].name + 
-      //   "<br>" + "Phone number: " + results[count].display_phone + "<br>" + 
-      //   "Menu Price: " + results[count].price + "<br>" + 
-      //   "Restaurant rating: " + results[count].rating + "<br>" + 
-      //   "Restaurant location: " + results[count].location.display_address + "<br>"
-
-      // cardText.push(text);
-
-      location.href = "Separate-Pages/users.html";
+      
     }
-    console.log(cardText)
+
+    //store data in local storage
+    localStorage.setItem("businessArr", JSON.stringify(searchResults));
+    localStorage.setItem("businessIDArr", JSON.stringify(businessIDArr));
   });
+  //location.href = "Separate-Pages/food.html";
 });

@@ -1,5 +1,5 @@
-var businesses = localStorage.getItem("businessArr");
-var businessConverted = JSON.parse(businesses);
+var businessArr = localStorage.getItem("businessArr");
+var businessConverted = JSON.parse(businessArr);
 var imgDiv = $("<img>");
 var textDiv = $("<div>");
 
@@ -12,9 +12,22 @@ console.log(businessConverted[0]);
 for (var count = 0; count < businessConverted.length; count++) {
     var imgDiv = $("<img>");
     var textDiv = $("<div>");
-
+    var businessData = businessConverted[count];
+    var name = businessData.name;
+    var address = businessData.location.display_address;
+    var zip = businessData.location.zip_code;
+    var phoneNum = businessData.display_phone;
+    var price = businessData.price;
+    var rating = businessData.rating;
+    var imgURL = businessData.image_url;
     
-}
+    
+    console.log(name);
+
+    //append and display images in carousel
+
+    //display time in 12-hour format
+};
 
 $("#textDiv").html(businessConverted);
         // "Restaurant name: " + results[count].name +

@@ -2,7 +2,6 @@ var businessArr = localStorage.getItem("businessDetails");
 var businessIDArr = localStorage.getItem("businessIDArr");
 var businessConverted = JSON.parse(businessArr);
 var idConverted = JSON.parse(businessIDArr);
-var imgDiv = $("<img>");
 console.log(businessConverted);
 
 // cardDiv.attr("id", "card-full");
@@ -21,7 +20,7 @@ function renderGrid() {
         var phoneNum = businessData.phoneNum;
         var price = businessData.price;
         var rating = businessData.rating;
-        var imgURL = businessData.image_url;
+        var imgURL = businessData.photo;
         var nameLink = $("<a>");
             nameLink.html("<h5>" + name + "</h5>");
         var displayText =
@@ -33,6 +32,7 @@ function renderGrid() {
         var nameHead = $("<div>");
         var cardDiv = $("<div>");
         var cardBody = $("<div>");
+        var imgDiv = $("<img>");
         var text = $("<p>");
             text.html(displayText);
 
@@ -43,9 +43,13 @@ function renderGrid() {
         cardBody.addClass("card-body");
         nameLink.addClass("card-title");
         text.addClass("card-text");
+        imgDiv.attr("src", imgURL);
+        imgDiv.attr("id", "image");
 
         //append divs to grid
         $(".card-columns").append(cardDiv);
+        //append image to cardDiv
+        $(cardDiv).append(imgDiv);
         $(cardDiv).append(nameHead);
         $(cardDiv).append(cardBody);
         $(cardBody).append(text)
@@ -55,6 +59,7 @@ function renderGrid() {
 
         console.log(name);
         console.log(displayText);
+        console.log(imgURL);
 
         //append and display images in carousel
 

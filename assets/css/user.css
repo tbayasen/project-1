@@ -1,5 +1,6 @@
 body {
-    background-image: url("foodie.jpg");
+    background: url("foodie.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 #brandname, #searchform, #userSname, #subbtn {
@@ -20,6 +21,11 @@ body {
     padding: 8px;
     font-size: 25px;
     font-family: 'McLaren', cursive;
+}
+
+#image {
+    width: 250px;
+    height: 200px;
 }
 
 .card, #card-top {

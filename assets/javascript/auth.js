@@ -18,15 +18,6 @@ var userSignIn = localStorage.getItem("userSignin");
 
 $("#logout").hide();
 
-// Listen for auth status change
-auth.onAuthStateChanged(user => {
-    if (user) {
-        console.log('user logged in: ', user)
-    } else {
-        console.log('user logged out');
-    }
-});
-
 function checkAccount() {
     if (userSignIn === 'true') {
         $("#login").hide();
@@ -37,6 +28,14 @@ function checkAccount() {
 
 checkAccount();
 
+// Listen for auth status change
+auth.onAuthStateChanged(user => {
+    if (user) {
+        console.log('user logged in: ', user)
+    } else {
+        console.log('user logged out');
+    }
+});
 
 // Signup
 $('#signup-btn').on('click', function () {
@@ -50,12 +49,10 @@ $('#signup-btn').on('click', function () {
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
 
         userSignin = "true";
-        if (userSignin === "true") {
-            hideNav();
+        if (userSignin === "true")
             localStorage.setItem("userSignin", "true");
-        }
-
     });
+    checkAccount();
 
     $('.modal').modal('hide');
 
@@ -67,14 +64,13 @@ $('#login-btn').on('click', function () {
     const email = $('#login-email').val().trim();
     const password = $('#login-pass').val().trim();
     auth.signInWithEmailAndPassword(email, password).then(cred => {
+
         userSignin = "true";
         if (userSignin === "true") {
-            hideNav();
             localStorage.setItem("userSignin", "true");
         }
-
     });
-
+    checkAccount();
 
     $('.modal').modal('hide');
 

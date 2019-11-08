@@ -45,18 +45,6 @@ var limit = 20;
 var apiKey = "wAobknQgAx21mQJuLhGdCe0MSHJtlI5TX6xNyV1t_0RGxDxGNIueYFAiv_nAxJe8EpHLwX07x2cbBmedIPXMKZSoUqtrpkiLW8gRxeqq_xftq0DWxoQhdeAnSuG9XXYx"
 var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=by-chloe&location=boston";
 
-$.ajax({
-  url: queryURL,
-  headers: {
-    'Authorization': "Bearer " + apiKey,
-  },
-  method: 'Get',
-  dataType: 'json',
-  success: function (data) {
-    console.log(data);
-  }
-});
-
 //search button
 $("#subbtn").on("click", function () {
   //prevent refresh on user press 'enter'
@@ -113,12 +101,14 @@ $("#subbtn").on("click", function () {
       price = results[count].price;
       rating = results[count].rating;
       businessID = results[count].id;
+      photo = results[count].image_url;
+
 
       yelpDetailsURL = yelpAPI + '/businesses/' + businessID;
       yelpReviewsURL = yelpAPI + '/businesses/' + businessID + '/reviews';
 
       //push values to arrays
-      businessDetails.push({ name, address, zip, phoneNum, price, rating, businessID });
+      businessDetails.push({name, address, zip, phoneNum, price, rating, businessID, photo});
     }
     businessContainer.push(businessDetails);
     console.log(businessDetails);

@@ -4,6 +4,7 @@ var businessConverted = JSON.parse(businessArr);
 var idConverted = JSON.parse(businessIDArr);
 console.log(businessConverted);
 
+
 // cardDiv.attr("id", "card-full");
 // cardDiv.addClass("card");
 // cardBody.addClass("card-body");

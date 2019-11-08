@@ -1,5 +1,7 @@
-//
-//db.collection()
+let userSignin = false;
+
+$("#logout").hide();
+
 // Listen for auth status change
 auth.onAuthStateChanged(user => {
     if (user) {
@@ -8,6 +10,13 @@ auth.onAuthStateChanged(user => {
         console.log('user logged out');
     }
 });
+
+function hideNav() {
+    $("#login").hide();
+    $("#signup").hide();
+    $("#logout").show();
+}
+
 
 // Signup
 $('#signup-btn').on('click', function () {
@@ -19,7 +28,15 @@ $('#signup-btn').on('click', function () {
 
     // sign up user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
+
+        userSignin = true;
+        if (userSignin) {
+            hideNav();
+        }
+
     });
+
+    $('.modal').modal('hide');
 
     $('.validate').val('');
 });
@@ -31,10 +48,20 @@ $('#login-btn').on('click', function () {
 
     auth.signInWithEmailAndPassword(email, password).then(cred => {
     });
+
+    $('.modal').modal('hide');
+
+    $('.validate').val('');
+
 });
 
 // Logout
 $('#logout').on('click', function () {
     auth.signOut().then(cred => {
+
+        $("#signup").show();
+        $("#login").show();
+        $("#logout").hide();
+
     });
 });

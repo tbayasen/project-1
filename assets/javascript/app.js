@@ -118,7 +118,7 @@ $("#subbtn").on("click", function () {
       yelpReviewsURL = yelpAPI + '/businesses/' + businessID + '/reviews';
 
       //push values to arrays
-      businessDetails.push({name, address, zip, phoneNum, price, rating, businessID});
+      businessDetails.push({ name, address, zip, phoneNum, price, rating, businessID });
     }
     businessContainer.push(businessDetails);
     console.log(businessDetails);

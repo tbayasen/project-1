@@ -8,6 +8,8 @@
     <title>Foodie!</title>
     <!-- link css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- link icons -->
+    <link href="./assets/css/open-iconic-master/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <!-- link fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
@@ -20,14 +22,14 @@
 </head>​
 
 <body>
-    ​<nav class="navbar fixed-top text-center"
-        style="text-decoration: none; background-color: rgb(233, 58, 58); color: white">
-        <a href="#" class="nav-content" id="users">Users</a>
-        <a href="index.html" id="word" class="nav-brand">FOODIE</a>
-        <a href="#" class="nav-content" id="logout">Logout</a>
-        <a href="#" class="nav-content" data-toggle="modal" data-target="#modalLoginForm" id="login">Login</a>
-        <a href="#" class="nav-content" data-toggle="modal" data-target="#modalSignupForm" id="signup">Sign up</a>
-    </nav>
+    ​<nav class="navbar fixed-top text-center" style="text-decoration: none; background-color: rgb(233, 58, 58); color: white; opacity: 0.8">
+    <a href="" id="login"><span class="oi oi-people" title="people" aria-hidden="true"></span> Users</a>
+    <a id="word" class="navbar-brand" href="index.html"> FOODIE</a>
+    <a href="#" class="nav-content" id="logout">Logout</a>
+    <a href="#" class="nav-content" data-toggle="modal" data-target="#modalLoginForm" id="login"><span class="oi oi-browser" title="browser" aria-hidden="true"></span> Login</a>
+    <a href="#" class="nav-content" data-toggle="modal" data-target="#modalSignupForm" id="signup">Sign up</a>
+</nav>
+
 
     <br>
     <br>

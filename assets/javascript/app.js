@@ -118,7 +118,7 @@ $("#subbtn").on("click", function () {
       yelpReviewsURL = yelpAPI + '/businesses/' + businessID + '/reviews';
 
       //push values to arrays
-      businessDetails.push({name, address, zip, phoneNum, price, rating, businessID});
+      businessDetails.push({ name, address, zip, phoneNum, price, rating, businessID });
     }
     businessContainer.push(businessDetails);
     console.log(businessDetails);
@@ -163,8 +163,8 @@ $("#subbtn").on("click", function () {
     localStorage.setItem("businessDetails", JSON.stringify(businessDetails));
   });
 
-  // var timer = setTimeout(function () {
-  //   location.href = "Separate-Pages/food.html";
-  // }, 1500);
-  // timer();
+  var timer = setTimeout(function () {
+    location.href = "Separate-Pages/food.html";
+  }, 1500);
+  timer();
 });

@@ -1,8 +1,7 @@
-//
 let userSignin = false;
-let userLogin = false;
 
 $("#logout").hide();
+
 // Listen for auth status change
 auth.onAuthStateChanged(user => {
     if (user) {
@@ -59,5 +58,10 @@ $('#login-btn').on('click', function () {
 // Logout
 $('#logout').on('click', function () {
     auth.signOut().then(cred => {
+
+        $("#signup").show();
+        $("#login").show();
+        $("#logout").hide();
+
     });
 });

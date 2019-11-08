@@ -1,3 +1,5 @@
+//
+db.collection()
 // Listen for auth status change
 auth.onAuthStateChanged(user => {
     if (user) {

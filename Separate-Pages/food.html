@@ -4,74 +4,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     ​
+    <!-- link fonts -->
+    <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- link bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    ​
     <!-- link css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/user.css">
-    </link>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- link jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    ​
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
-    ​
-    ​
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    ​
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <style>
-        body {
-            background-image: url("../assets/css/foodie.jpg");
-        }
-    </style>
-
 </head>
 
 <body>
 
-    <nav id="header">
-        <div class=" nav-wrapper teal lighten-2">
-            <a href="../index.html" class="brand-logo center" id="brandname">FOODIE</a>
-            <ul class="left hide-on-med-and-down">
-                <li><a href="sass.html" id="userSname">Users </a></li>
-                ​
-                ​
-            </ul>
-        </div>
-        ​
+    ​<nav class="navbar fixed-top text-center" style="text-decoration: none; background-color: #4db6acd2; color: white">
+        <a href="" id="login">Users</a>
+        <a id="word" class="navbar-brand" href="index.html">FOODIE</a>
+        <a href="" data-toggle="modal" data-target="#modalLoginForm" id="login">Login</a>
     </nav>
     ​
     <br>
     <br>
     <br>
-
-    <div id="x">
-         
-    </div>
-    ​
-
     ​
     <div class="container">​
         <div class="card-columns">
 
-            <div id="card-full" class="card">
+            <!-- <div id="card-full" class="card">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -94,10 +58,6 @@
                     </a>
                 </div>
 
-                <div id="businessGrid" class="card-body">
-                    <div id="textDiv"></div>
-                </div>
-
                 <!-- <div class="carousel">
                     <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/food"></a>
                     <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/food"></a>
@@ -105,23 +65,27 @@
                     <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/food"></a>
                     <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/food"></a>
                 </div> -->
-                <div class="card-body">
+            <!-- <div class="card-body">
                     <a href="#!" class="card-title"><h5>Panda Express</h5> </a>
 
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
+                </div> -->
+        </div> -->
     </div>
-
-
-
-
-
-
+    </div>
+    <!-- link jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- link firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- link bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- link javascript -->
+    <script src="../assets/javascript/food.js"></script>
 </body>
-
-<script src="../assets/javascript/user.js"></script>
 
 </html>

@@ -22,7 +22,7 @@ function renderGrid() {
         var rating = businessData.rating;
         var imgURL = businessData.photo;
         var nameLink = $("<a>");
-            nameLink.html("<h5>" + name + "</h5>");
+        nameLink.html("<h5>" + name + "</h5>");
         var displayText =
             // "Restaurant name: " + name + "<br>" +
             "Phone number: " + phoneNum + "<br>" +
@@ -34,7 +34,7 @@ function renderGrid() {
         var cardBody = $("<div>");
         var imgDiv = $("<img>");
         var text = $("<p>");
-            text.html(displayText);
+        text.html(displayText);
 
         //set attributes & class
         cardDiv.addClass("card");

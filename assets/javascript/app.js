@@ -12,7 +12,17 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 //store global variables
-var database = firebase.database();
+var a = "";
+var b = "";
+var c = "";
+var d = "";
+
+// var database = firebase.database();
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+var queryURL = "";
+var clickCounter = 0;
 
 var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
 var yelpAPI = "";
@@ -22,12 +32,30 @@ var yelpReviewsURL = "";
 var autocomplete = "";
 var limit = 20;
 
-//Zomato API
-//No set function yet, just linking the API
-//ONLY 1000 QUERIES PER DAY!!!!!
-//After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
-//queryURL parameters still need to be set to limit how much data is displayed
+// On Click
+// $("#subbtn").on("click", function () {
+//   event.preventDefault();
+//   // Add 1 to clickCounter
+//   clickCounter++;
+//   database.ref().set({
+//     clickCount: clickCounter
+//   });
+// });
 
+var apiKey = "wAobknQgAx21mQJuLhGdCe0MSHJtlI5TX6xNyV1t_0RGxDxGNIueYFAiv_nAxJe8EpHLwX07x2cbBmedIPXMKZSoUqtrpkiLW8gRxeqq_xftq0DWxoQhdeAnSuG9XXYx"
+var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=by-chloe&location=boston";
+
+$.ajax({
+  url: queryURL,
+  headers: {
+    'Authorization': "Bearer " + apiKey,
+  },
+  method: 'Get',
+  dataType: 'json',
+  success: function (data) {
+    console.log(data);
+  }
+});
 
 //search button
 $("#subbtn").on("click", function () {
@@ -44,6 +72,7 @@ $("#subbtn").on("click", function () {
   autocomplete = yelpAPI + '/' + autocomplete;
   console.log(yelpSearchURL)
 
+
   $.ajax({
     url: yelpSearchURL,
     headers: {
@@ -58,6 +87,9 @@ $("#subbtn").on("click", function () {
     console.log(searchResults)
     console.log(searchResults.businesses)
 
+    // Set of code that will make the modal pop up without clicking the launch modal button
+    // $("#modalLoginForm").addClass("show")
+    // $("#modalLoginForm").attr("style", "display: block"
     //set variables
     var count = 0;
     var results = searchResults.businesses;

@@ -3,8 +3,8 @@ var businessIDArr = localStorage.getItem("businessIDArr");
 var userSignIn = localStorage.getItem("userSignin");
 var businessConverted = JSON.parse(businessArr);
 var idConverted = JSON.parse(businessIDArr);
-console.log(businessConverted);
-console.log(userSignIn);
+// console.log(businessConverted);
+// console.log(userSignIn);
 
 
 // cardDiv.attr("id", "card-full");
@@ -70,15 +70,16 @@ function renderGrid() {
         nameHead.html(nameLink);
         cardBody.html();
 
-        console.log(name);
-        console.log(displayText);
-        console.log(imgURL);
+        // console.log(name);
+        // console.log(displayText);
+        // console.log(imgURL);
 
         //append and display images in carousel
 
         //display time in 12-hour format
     };
 }
+
 
 renderGrid();
     //     "Restaurant name: " + results[count].name +

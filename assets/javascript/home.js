@@ -5,7 +5,6 @@ var c = "";
 var d = "";
 
 var queryURL = "";
-var clickCounter = 0;
 
 var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
 var yelpAPI = "";
@@ -53,9 +52,9 @@ $("#subbtn").on("click", function () {
         dataType: 'json',
     }).then(function (searchResults) {
         localStorage.setItem("businessArr", JSON.stringify(searchResults));
-        console.log(yelpSearchURL)
-        console.log(searchResults)
-        console.log(searchResults.businesses)
+        // console.log(yelpSearchURL)
+        // console.log(searchResults)
+        // console.log(searchResults.businesses)
 
         // Set of code that will make the modal pop up without clicking the launch modal button
         // $("#modalLoginForm").addClass("show")
@@ -93,8 +92,8 @@ $("#subbtn").on("click", function () {
             businessDetails.push({ name, address, zip, phoneNum, price, rating, businessID, photo });
         }
         businessContainer.push(businessDetails);
-        console.log(businessDetails);
-        console.log(businessContainer);
+        // console.log(businessDetails);
+        // console.log(businessContainer);
         //   for (count = 0; count < results.length; count++) {
         //     yelpReviewsURL = reviewURLArr[count];
         //     yelpDetailsURL = detailsURLArr[count];
@@ -133,7 +132,7 @@ $("#subbtn").on("click", function () {
 
         //store data in local storage
         localStorage.setItem("businessDetails", JSON.stringify(businessDetails));
-        
+
     });
 
     var timer = setTimeout(function () {

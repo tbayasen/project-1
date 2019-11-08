@@ -37,9 +37,7 @@ $("#subbtn").on("click", function () {
   cuisine = $("#cuisine-type").val().trim();
   zip = $("#user-location").val().trim();
   yelpAPI = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3'
-  yelpSearchURL = yelpAPI + '/businesses/search?term=' + cuisine + '&limit='+ limit + '&location=' + zip;
-  // yelpDetailsURL = yelpAPI + '/businesses/' + businessID;
-  // yelpReviewsURL = yelpAPI + '/businesses/' + businessID + '/reviews';
+  yelpSearchURL = yelpAPI + '/businesses/search?term=' + cuisine + '&limit=' + limit + '&location=' + zip;
   autocomplete = yelpAPI + '/' + autocomplete;
   console.log(yelpSearchURL)
 
@@ -61,6 +59,8 @@ $("#subbtn").on("click", function () {
     var results = searchResults.businesses;
     var businessIDArr = [];
     var businessID;
+    var reviewURLArr = [];
+    var detailsURLArr = [];
 
     localStorage.clear();
 
@@ -68,25 +68,70 @@ $("#subbtn").on("click", function () {
 
     //iterate through json array
     for (count = 0; count < results.length; count++) {
-      //push businessID to businessIDArr
-      businessID =  results[count].id;
-      businessIDArr.push(businessID);
+      businessID = results[count].id;
+      yelpDetailsURL = yelpAPI + '/businesses/' + businessID;
+      yelpReviewsURL = yelpAPI + '/businesses/' + businessID + '/reviews';
 
-      console.log(businessIDArr)
-      console.log(results[count]);
-      console.log("Restaurant name: " + results[count].name);
-      console.log("Business ID: " + businessID);
-      console.log("Phone number: " + results[count].display_phone);
-      console.log("Menu Price: " + results[count].price);
-      console.log("Restaurant rating: " + results[count].rating);
-      console.log("Restaurant location: " + results[count].location.display_address)
-      console.log("-----------------");
-      
+      //push values to arrays
+      businessIDArr.push(businessID);
+      detailsURLArr.push(yelpDetailsURL);
+      reviewURLArr.push(yelpReviewsURL);
+
+
+      // console.log(businessIDArr)
+      // console.log(results[count]);
+      // console.log("Restaurant name: " + results[count].name);
+      // console.log("Business ID: " + businessID);
+      // console.log("Phone number: " + results[count].display_phone);
+      // console.log("Menu Price: " + results[count].price);
+      // console.log("Restaurant rating: " + results[count].rating);
+      // console.log("Restaurant location: " + results[count].location.display_address)
+      // console.log(businessIDArr[count]);
+      // console.log(detailsURLArr);
+      // console.log(reviewURLArr);
+      // console.log("-----------------");
     }
+
+  //   for (count = 0; count < results.length; count++) {
+  //     yelpReviewsURL = reviewURLArr[count];
+  //     yelpDetailsURL = detailsURLArr[count];
+
+  //     console.log(yelpReviewsURL);
+  //     console.log(yelpDetailsURL);
+
+  //     var getBusinessDetails = $.ajax({
+  //       async:true,
+  //       url: yelpReviewsURL,
+  //       headers: {
+  //         "accept": "application/json",
+  //         "Access-Control-Allow-Origin": "*",
+  //         "Authorization": `Bearer ${apiKey}`
+  //       },
+  //       dataType: 'json',
+  //     }),
+  //       getBusinessReviews = $.ajax({
+  //         async:true,
+  //         url: yelpDetailsURL,
+  //         headers: {
+  //           "accept": "application/json",
+  //           "Access-Control-Allow-Origin": "*",
+  //           "Authorization": `Bearer ${apiKey}`
+  //         },
+  //         dataType: 'json',
+  //       });
+        
+  //     $.when(getBusinessDetails, getBusinessReviews).done(function (businessDetails, businessReviews) {
+  //       console.log(yelpReviewsURL);
+  //       console.log(businessDetails);
+  //       console.log(businessReviews);
+  //     })
+  //     setTimeout(getBusinessDetails)
+  // }
+
 
     //store data in local storage
     localStorage.setItem("businessArr", JSON.stringify(searchResults));
     localStorage.setItem("businessIDArr", JSON.stringify(businessIDArr));
   });
-  //location.href = "Separate-Pages/food.html";
+  location.href = "Separate-Pages/food.html";
 });

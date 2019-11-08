@@ -16,43 +16,26 @@ var a = "";
 var b = "";
 var c = "";
 var d = "";
-var database = firebase.database();
+
+// var database = firebase.database();
+const auth = firebase.auth();
+const db = firebase.firestore();
 
 var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
 var queryURL = "";
-
-//Zomato API
-//No set function yet, just linking the API
-//ONLY 1000 QUERIES PER DAY!!!!!
-//After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
-//queryURL parameters still need to be set to limit how much data is displayed
-
-
 var clickCounter = 0;
 
 // Functions
 // ================================================================================
 
 // On Click
-$("#subbtn").on("click", function () {
-  event.preventDefault();
-  // Add 1 to clickCounter
-  clickCounter++;
-  database.ref().set({
-    clickCount: clickCounter
-  });
-});
-
-// var apiKey = "fc5adeded0912b9cf54d85989a2e7ae9"
-// var queryURL = "https://developers.zomato.com/api/v2.1/categories"
-// $.ajax({
-//   dataType: 'json',
-//   url: queryURL,
-//   headers: {
-//     "user-key": apiKey
-//   }
-// }).then(function (response) {
-//   console.log(response.data.categories[0].name);
+// $("#subbtn").on("click", function () {
+//   event.preventDefault();
+//   // Add 1 to clickCounter
+//   clickCounter++;
+//   database.ref().set({
+//     clickCount: clickCounter
+//   });
 // });
 
 var apiKey = "wAobknQgAx21mQJuLhGdCe0MSHJtlI5TX6xNyV1t_0RGxDxGNIueYFAiv_nAxJe8EpHLwX07x2cbBmedIPXMKZSoUqtrpkiLW8gRxeqq_xftq0DWxoQhdeAnSuG9XXYx"
@@ -68,16 +51,7 @@ $.ajax({
   success: function (data) {
     console.log(data);
   }
-
-
 });
-
-//After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
-//queryURL parameters still need to be set to limit how much data is displayed
-
-//After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
-//queryURL parameters still need to be set to limit how much data is displayed
-
 
 //search button
 $("#subbtn").on("click", function () {
@@ -144,7 +118,7 @@ $("#subbtn").on("click", function () {
       console.log("Phone number: " + results[count].display_phone);
       console.log("Menu Price: " + results[count].price);
       console.log("Restaurant rating: " + results[count].rating);
-      console.log("Restaurant location: " + results[count].location.display_address)
+      console.log("Restaurant location: " + results[count].location.display_address);
       console.log("-----------------");
 
       // var text = 
@@ -157,6 +131,7 @@ $("#subbtn").on("click", function () {
       // cardText.push(text);
 
       location.href = "Separate-Pages/users.html";
+      console.log(cardText);
     }
-    console.log(cardText)
-
+  });
+});

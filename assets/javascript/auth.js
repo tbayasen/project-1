@@ -14,13 +14,7 @@ firebase.initializeApp(firebaseConfig);
 // var database = firebase.database();
 const auth = firebase.auth();
 const db = firebase.firestore();
-
-let userSignin;
-if (localStorage.getItem("userSignin") === "true" || localStorage.getItem("userSignin") === "false") {
-    userSignin = localStorage.getItem("userSignin")
-    console.log(userSignin);
-}
-
+var userSignIn = localStorage.getItem("userSignin");
 
 $("#logout").hide();
 
@@ -32,12 +26,6 @@ auth.onAuthStateChanged(user => {
         console.log('user logged out');
     }
 });
-
-function hideNav() {
-    $("#login").hide();
-    $("#signup").hide();
-    $("#logout").show();
-}
 
 function checkAccount() {
     if (userSignIn === 'true') {

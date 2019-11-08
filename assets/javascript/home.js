@@ -132,6 +132,7 @@ $("#subbtn").on("click", function () {
 
         //store data in local storage
         localStorage.setItem("businessDetails", JSON.stringify(businessDetails));
+        
     });
 
     var timer = setTimeout(function () {

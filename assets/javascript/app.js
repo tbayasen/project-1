@@ -11,61 +11,174 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
 //store global variables
 var a = "";
 var b = "";
 var c = "";
 var d = "";
+
+// var database = firebase.database();
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+var queryURL = "";
+var clickCounter = 0;
+
+// Functions
+// ================================================================================
 var database = firebase.database();
 
 var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
-var queryURL = "";
+var yelpAPI = "";
+var yelpSearchURL = "";
+var yelpDetailsURL = "";
+var yelpReviewsURL = "";
+var autocomplete = "";
+var limit = 20;
 
-//Zomato API
-//No set function yet, just linking the API
-//ONLY 1000 QUERIES PER DAY!!!!!
-//After v2.1/ we list the data we are trying to referennce i.e. cities,location,reviews, restaraunts etc...from the zomato api documentation
-//queryURL parameters still need to be set to limit how much data is displayed
+// On Click
+// $("#subbtn").on("click", function () {
+//   event.preventDefault();
+//   // Add 1 to clickCounter
+//   clickCounter++;
+//   database.ref().set({
+//     clickCount: clickCounter
+//   });
+// });
 
+var apiKey = "wAobknQgAx21mQJuLhGdCe0MSHJtlI5TX6xNyV1t_0RGxDxGNIueYFAiv_nAxJe8EpHLwX07x2cbBmedIPXMKZSoUqtrpkiLW8gRxeqq_xftq0DWxoQhdeAnSuG9XXYx"
+var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=by-chloe&location=boston";
+
+$.ajax({
+  url: queryURL,
+  headers: {
+    'Authorization': "Bearer " + apiKey,
+  },
+  method: 'Get',
+  dataType: 'json',
+  success: function (data) {
+    console.log(data);
+  }
+});
 
 //search button
 $("#subbtn").on("click", function () {
   //prevent refresh on user press 'enter'
   event.preventDefault();
   //pull and store values from input form
-  cuisine = $("#Cuisine").val().trim();
-  zip = $("#zip").val().trim();
-  queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=' + cuisine + '&limit=20&location=' + zip;
-  console.log(queryURL)
+  cuisine = $("#cuisine-type").val().trim();
+  zip = $("#user-location").val().trim();
+  yelpAPI = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3'
+  yelpSearchURL = yelpAPI + '/businesses/search?term=' + cuisine + '&limit=' + limit + '&location=' + zip;
+  autocomplete = yelpAPI + '/' + autocomplete;
+  console.log(yelpSearchURL)
+
 
   $.ajax({
-    url: queryURL,
+    url: yelpSearchURL,
     headers: {
       "accept": "application/json",
       "Access-Control-Allow-Origin": "*",
       "Authorization": `Bearer ${apiKey}`
     },
     dataType: 'json',
-  }).then(function (response) {
-    console.log(queryURL)
-    console.log(response)
-    console.log(response.businesses)
+  }).then(function (searchResults) {
+    console.log(yelpSearchURL)
+    console.log(searchResults)
+    console.log(searchResults.businesses)
 
+    // Set of code that will make the modal pop up without clicking the launch modal button
+    // $("#modalLoginForm").addClass("show")
+    // $("#modalLoginForm").attr("style", "display: block"
     //set variables
-    var i = 0;
-    var results = response.businesses;
+    var count = 0;
+    var results = searchResults.businesses;
+    var businessIDArr = [];
+    var businessID;
+    var reviewURLArr = [];
+    var detailsURLArr = [];
+
+    localStorage.clear();
 
     console.log(name);
 
+    // 
+    // //search button
+    // $("#").on("click", function (event) {
+    //   //prevent refresh on user press 'enter'
+    //   event.preventDefault();
+    //   //pull and store values from input form
+    //   a = $("#").val().trim();
+    //   b = $("#").val().trim();
+    //   c = $("#").val().trim();
+    //   d = $("#").val().trim();
+    // });
     //iterate through json array
-    for (i = 0; i < 20; i++) {
-      console.log("Restaurant name: " + results[i].name);
-      console.log("Phone number: " + results[i].display_phone);
-      console.log("Menu Price: " + results[i].price);
-      console.log("Restaurant rating: " + results[i].rating);
-      console.log("Restaurant location: " + results[i].location.display_address[1] + ", " + results[i].location.display_address[2]);
-      console.log("-----------------");
+    for (count = 0; count < results.length; count++) {
+      businessID = results[count].id;
+      yelpDetailsURL = yelpAPI + '/businesses/' + businessID;
+      yelpReviewsURL = yelpAPI + '/businesses/' + businessID + '/reviews';
+
+      //push values to arrays
+      businessIDArr.push(businessID);
+      detailsURLArr.push(yelpDetailsURL);
+      reviewURLArr.push(yelpReviewsURL);
+
+
+      // console.log(businessIDArr)
+      // console.log(results[count]);
+      // console.log("Restaurant name: " + results[count].name);
+      // console.log("Business ID: " + businessID);
+      // console.log("Phone number: " + results[count].display_phone);
+      // console.log("Menu Price: " + results[count].price);
+      // console.log("Restaurant rating: " + results[count].rating);
+      // console.log("Restaurant location: " + results[count].location.display_address)
+      // console.log(businessIDArr[count]);
+      // console.log(detailsURLArr);
+      // console.log(reviewURLArr);
+      // console.log("-----------------");
     }
+
+    //   for (count = 0; count < results.length; count++) {
+    //     yelpReviewsURL = reviewURLArr[count];
+    //     yelpDetailsURL = detailsURLArr[count];
+
+    //     console.log(yelpReviewsURL);
+    //     console.log(yelpDetailsURL);
+
+    //     var getBusinessDetails = $.ajax({
+    //       async:true,
+    //       url: yelpReviewsURL,
+    //       headers: {
+    //         "accept": "application/json",
+    //         "Access-Control-Allow-Origin": "*",
+    //         "Authorization": `Bearer ${apiKey}`
+    //       },
+    //       dataType: 'json',
+    //     }),
+    //       getBusinessReviews = $.ajax({
+    //         async:true,
+    //         url: yelpDetailsURL,
+    //         headers: {
+    //           "accept": "application/json",
+    //           "Access-Control-Allow-Origin": "*",
+    //           "Authorization": `Bearer ${apiKey}`
+    //         },
+    //         dataType: 'json',
+    //       });
+
+    //     $.when(getBusinessDetails, getBusinessReviews).done(function (businessDetails, businessReviews) {
+    //       console.log(yelpReviewsURL);
+    //       console.log(businessDetails);
+    //       console.log(businessReviews);
+    //     })
+    //     setTimeout(getBusinessDetails)
+    // }
+
+
+    //store data in local storage
+    localStorage.setItem("businessArr", JSON.stringify(searchResults));
+    localStorage.setItem("businessIDArr", JSON.stringify(businessIDArr));
   });
+  location.href = "Separate-Pages/food.html";
 });

@@ -11,6 +11,7 @@ console.log(businessConverted);
 
 //console.log(businessConverted);
 
+
 function renderGrid() {
     for (var count = 0; count < businessConverted.length; count++) {
         //set variables
@@ -67,6 +68,7 @@ function renderGrid() {
         //display time in 12-hour format
     };
 }
+
 
 renderGrid();
     //     "Restaurant name: " + results[count].name +

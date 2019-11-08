@@ -39,6 +39,16 @@ function hideNav() {
     $("#logout").show();
 }
 
+function checkAccount() {
+    if (userSignIn === 'true') {
+        $("#login").hide();
+        $("#signup").hide();
+        $("#logout").show();
+    }
+};
+
+checkAccount();
+
 
 // Signup
 $('#signup-btn').on('click', function () {
@@ -68,9 +78,15 @@ $('#signup-btn').on('click', function () {
 $('#login-btn').on('click', function () {
     const email = $('#login-email').val().trim();
     const password = $('#login-pass').val().trim();
-
     auth.signInWithEmailAndPassword(email, password).then(cred => {
+        userSignin = "true";
+        if (userSignin === "true") {
+            hideNav();
+            localStorage.setItem("userSignin", "true");
+        }
+
     });
+
 
     $('.modal').modal('hide');
 
@@ -80,8 +96,8 @@ $('#login-btn').on('click', function () {
 
 // Logout
 $('#logout').on('click', function () {
+    localStorage.removeItem("userSignin");
     auth.signOut().then(cred => {
-
         $("#signup").show();
         $("#login").show();
         $("#logout").hide();

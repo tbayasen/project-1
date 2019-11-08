@@ -5,7 +5,6 @@ var c = "";
 var d = "";
 
 var queryURL = "";
-var clickCounter = 0;
 
 var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
 var yelpAPI = "";

@@ -24,10 +24,6 @@ const db = firebase.firestore();
 var queryURL = "";
 var clickCounter = 0;
 
-// Functions
-// ================================================================================
-var database = firebase.database();
-
 var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
 var yelpAPI = "";
 var yelpSearchURL = "";
@@ -65,6 +61,9 @@ $.ajax({
 $("#subbtn").on("click", function () {
   //prevent refresh on user press 'enter'
   event.preventDefault();
+  //clear local storage
+  localStorage.clear();
+
   //pull and store values from input form
   cuisine = $("#cuisine-type").val().trim();
   zip = $("#user-location").val().trim();
@@ -83,6 +82,7 @@ $("#subbtn").on("click", function () {
     },
     dataType: 'json',
   }).then(function (searchResults) {
+    localStorage.setItem("businessArr", JSON.stringify(searchResults));
     console.log(yelpSearchURL)
     console.log(searchResults)
     console.log(searchResults.businesses)
@@ -93,52 +93,36 @@ $("#subbtn").on("click", function () {
     //set variables
     var count = 0;
     var results = searchResults.businesses;
-    var businessIDArr = [];
     var businessID;
-    var reviewURLArr = [];
-    var detailsURLArr = [];
+    var businessDetails = [];
+    var businessContainer = [];
+    var name;
+    var address;
+    var zip;
+    var phoneNum;
+    var price;
+    var rating;
+    var imgURL;
 
-    localStorage.clear();
-
-    console.log(name);
-
-    // 
-    // //search button
-    // $("#").on("click", function (event) {
-    //   //prevent refresh on user press 'enter'
-    //   event.preventDefault();
-    //   //pull and store values from input form
-    //   a = $("#").val().trim();
-    //   b = $("#").val().trim();
-    //   c = $("#").val().trim();
-    //   d = $("#").val().trim();
-    // });
     //iterate through json array
     for (count = 0; count < results.length; count++) {
+      name = results[count].name;
+      address = results[count].location.display_address;
+      zip = results[count].location.zip_code;
+      phoneNum = results[count].display_phone;
+      price = results[count].price;
+      rating = results[count].rating;
       businessID = results[count].id;
+
       yelpDetailsURL = yelpAPI + '/businesses/' + businessID;
       yelpReviewsURL = yelpAPI + '/businesses/' + businessID + '/reviews';
 
       //push values to arrays
-      businessIDArr.push(businessID);
-      detailsURLArr.push(yelpDetailsURL);
-      reviewURLArr.push(yelpReviewsURL);
-
-
-      // console.log(businessIDArr)
-      // console.log(results[count]);
-      // console.log("Restaurant name: " + results[count].name);
-      // console.log("Business ID: " + businessID);
-      // console.log("Phone number: " + results[count].display_phone);
-      // console.log("Menu Price: " + results[count].price);
-      // console.log("Restaurant rating: " + results[count].rating);
-      // console.log("Restaurant location: " + results[count].location.display_address)
-      // console.log(businessIDArr[count]);
-      // console.log(detailsURLArr);
-      // console.log(reviewURLArr);
-      // console.log("-----------------");
+      businessDetails.push({name, address, zip, phoneNum, price, rating, businessID});
     }
-
+    businessContainer.push(businessDetails);
+    console.log(businessDetails);
+    console.log(businessContainer);
     //   for (count = 0; count < results.length; count++) {
     //     yelpReviewsURL = reviewURLArr[count];
     //     yelpDetailsURL = detailsURLArr[count];
@@ -175,10 +159,12 @@ $("#subbtn").on("click", function () {
     //     setTimeout(getBusinessDetails)
     // }
 
-
     //store data in local storage
-    localStorage.setItem("businessArr", JSON.stringify(searchResults));
-    localStorage.setItem("businessIDArr", JSON.stringify(businessIDArr));
+    localStorage.setItem("businessDetails", JSON.stringify(businessDetails));
   });
-  location.href = "Separate-Pages/food.html";
+
+  // var timer = setTimeout(function () {
+  //   location.href = "Separate-Pages/food.html";
+  // }, 1500);
+  // timer();
 });

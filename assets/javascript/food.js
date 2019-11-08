@@ -1,21 +1,24 @@
-var businessArr = localStorage.getItem("businessArr");
+var businessArr = localStorage.getItem("businessDetails");
+var businessIDArr = localStorage.getItem("businessIDArr");
 var businessConverted = JSON.parse(businessArr);
+var idConverted = JSON.parse(businessIDArr);
 var imgDiv = $("<img>");
+console.log(businessConverted);
 
 // cardDiv.attr("id", "card-full");
 // cardDiv.addClass("card");
 // cardBody.addClass("card-body");
 
-console.log(businessConverted)
+//console.log(businessConverted);
 
 function renderGrid() {
-    for (var count = 0; count < businessConverted.businesses.length; count++) {
+    for (var count = 0; count < businessConverted.length; count++) {
         //set variables
-        var businessData = businessConverted.businesses[count];
+        var businessData = businessConverted[count];
         var name = businessData.name;
-        var address = businessData.location.display_address;
-        var zip = businessData.location.zip_code;
-        var phoneNum = businessData.display_phone;
+        var address = businessData.address;
+        var zip = businessData.zip;
+        var phoneNum = businessData.phoneNum;
         var price = businessData.price;
         var rating = businessData.rating;
         var imgURL = businessData.image_url;

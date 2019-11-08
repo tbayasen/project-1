@@ -14,6 +14,7 @@ firebase.initializeApp(firebaseConfig);
 // var database = firebase.database();
 const auth = firebase.auth();
 const db = firebase.firestore();
+var userSignIn = localStorage.getItem("userSignin");
 
 let userSignin;
 if (localStorage.getItem("userSignin") === "true" || localStorage.getItem("userSignin") === "false") {
@@ -33,11 +34,16 @@ auth.onAuthStateChanged(user => {
     }
 });
 
-function hideNav() {
-    $("#login").hide();
-    $("#signup").hide();
-    $("#logout").show();
-}
+function checkAccount() {
+    if (userSignIn === 'true') {
+        $("#login").hide();
+        $("#signup").hide();
+        $("#logout").show();
+    }
+  };
+  
+  checkAccount();
+
 
 
 // Signup

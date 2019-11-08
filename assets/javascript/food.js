@@ -1,8 +1,10 @@
 var businessArr = localStorage.getItem("businessDetails");
 var businessIDArr = localStorage.getItem("businessIDArr");
+var userSignIn = localStorage.getItem("userSignin");
 var businessConverted = JSON.parse(businessArr);
 var idConverted = JSON.parse(businessIDArr);
 console.log(businessConverted);
+console.log(userSignIn);
 
 
 // cardDiv.attr("id", "card-full");
@@ -10,6 +12,16 @@ console.log(businessConverted);
 // cardBody.addClass("card-body");
 
 //console.log(businessConverted);
+
+function checkAccount() {
+    if (userSignIn === 'true') {
+        $("#login").hide();
+        $("#signup").hide();
+        $("#logout").show();
+    }
+};
+
+checkAccount();
 
 function renderGrid() {
     for (var count = 0; count < businessConverted.length; count++) {

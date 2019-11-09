@@ -82,8 +82,8 @@ $("#subbtn").on("click", function () {
         localStorage.setItem("businessDetails", JSON.stringify(businessDetails));
     });
 
-    // var timer = setTimeout(function () {
-    //     location.href = "Separate-Pages/food.html";
-    // }, 5000);
-    // timer();
+    var timer = setTimeout(function () {
+        location.href = "Separate-Pages/food.html";
+    }, 5000);
+    timer();
 });

@@ -16,14 +16,17 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 var userSignIn = localStorage.getItem("userSignin");
 
-let userSignin;
-if (localStorage.getItem("userSignin") === "true" || localStorage.getItem("userSignin") === "false") {
-    userSignin = localStorage.getItem("userSignin")
-    console.log(userSignin);
-}
-
-
 $("#logout").hide();
+
+function checkAccount() {
+    if (userSignIn === 'true') {
+        $("#login").hide();
+        $("#signup").hide();
+        $("#logout").show();
+    }
+};
+
+checkAccount();
 
 // Listen for auth status change
 auth.onAuthStateChanged(user => {
@@ -33,18 +36,6 @@ auth.onAuthStateChanged(user => {
         console.log('user logged out');
     }
 });
-
-function checkAccount() {
-    if (userSignIn === 'true') {
-        $("#login").hide();
-        $("#signup").hide();
-        $("#logout").show();
-    }
-  };
-  
-  checkAccount();
-
-
 
 // Signup
 $('#signup-btn').on('click', function () {
@@ -58,12 +49,10 @@ $('#signup-btn').on('click', function () {
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
 
         userSignin = "true";
-        if (userSignin === "true") {
-            hideNav();
+        if (userSignin === "true")
             localStorage.setItem("userSignin", "true");
-        }
-
     });
+    checkAccount();
 
     $('.modal').modal('hide');
 
@@ -76,9 +65,14 @@ $('#signup-btn').on('click', function () {
 $('#login-btn').on('click', function () {
     const email = $('#login-email').val().trim();
     const password = $('#login-pass').val().trim();
-
     auth.signInWithEmailAndPassword(email, password).then(cred => {
+
+        userSignin = "true";
+        if (userSignin === "true") {
+            localStorage.setItem("userSignin", "true");
+        }
     });
+    checkAccount();
 
     $('.modal').modal('hide');
 
@@ -88,8 +82,8 @@ $('#login-btn').on('click', function () {
 
 // Logout
 $('#logout').on('click', function () {
+    localStorage.removeItem("userSignin");
     auth.signOut().then(cred => {
-
         $("#signup").show();
         $("#login").show();
         $("#logout").hide();

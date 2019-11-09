@@ -7,9 +7,6 @@ var locationConverted = JSON.parse(userLoc);
 var businessConverted = JSON.parse(businessArr);
 var idConverted = JSON.parse(businessIDArr);
 
-console.log(businessConverted);
-console.log(userSignIn);
-
 function checkAccount() {
     if (userSignIn === 'true') {
         $("#login").hide();
@@ -108,18 +105,8 @@ function renderGrid() {
 
         nameHead.html(nameLink);
         cardBody.html();
-
-        console.log(name);
-        console.log(displayText);
-        console.log(imgURL);
     };
 }
 
+
 renderGrid();
-    //     "Restaurant name: " + results[count].name +
-    //     "<br>" + "Phone number: " + results[count].display_phone + "<br>" + 
-    //     "Menu Price: " + results[count].price + "<br>" + 
-    //     "Restaurant rating: " + results[count].rating + "<br>" + 
-    //     "Restaurant location: " + results[count].location.display_address + "<br>");
-    //   restaurantDiv.append(imgDiv);
-    //   imgDiv.html(img);

@@ -80,7 +80,6 @@ $("#subbtn").on("click", function () {
             businessDetails.push({ name, address, zip, longitude, latitude, phoneNum, price, rating, businessID, photo });
         }
         console.log(businessDetails);
-
         //store data in local storage
         localStorage.setItem("businessDetails", JSON.stringify(businessDetails));
 

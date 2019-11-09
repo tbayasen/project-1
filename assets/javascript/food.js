@@ -1,11 +1,9 @@
 //get and convert local storage
 var businessArr = localStorage.getItem("businessDetails");
-var businessIDArr = localStorage.getItem("businessIDArr");
 var userSignIn = localStorage.getItem("userSignin");
 var userLoc = localStorage.getItem("userLocation");
 var locationConverted = JSON.parse(userLoc);
 var businessConverted = JSON.parse(businessArr);
-var idConverted = JSON.parse(businessIDArr);
 
 function checkAccount() {
     if (userSignIn === 'true') {
@@ -102,6 +100,5 @@ function renderGrid() {
         cardBody.html();
     };
 }
-
 
 renderGrid();

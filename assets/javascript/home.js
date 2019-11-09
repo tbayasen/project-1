@@ -43,8 +43,6 @@ $("#subbtn").on("click", function () {
         },
         dataType: 'json',
     }).then(function (searchResults) {
-        localStorage.setItem("businessArr", JSON.stringify(searchResults));
-
         //set variables
         var count = 0;
         var results = searchResults.businesses;
@@ -78,11 +76,10 @@ $("#subbtn").on("click", function () {
 
         //store data in local storage
         localStorage.setItem("businessDetails", JSON.stringify(businessDetails));
-
     });
 
-    var timer = setTimeout(function () {
-        location.href = "Separate-Pages/food.html";
-    }, 3000);
-    timer();
+    // var timer = setTimeout(function () {
+    //     location.href = "Separate-Pages/food.html";
+    // }, 5000);
+    // timer();
 });

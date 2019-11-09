@@ -26,16 +26,33 @@ body {
 #image {
     width: 250px;
     height: 200px;
+    border: 2px solid rgb(233, 33, 33);
+    border-radius: 10px;
+}
+
+.card {
+    height: 64vh;
+    width: 100vw;
 }
 
 .card, #card-top {
     background-color: rgba(255, 237, 197, 0.788);
     border-radius: 25px;
     color: black;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     -webkit-box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.849);
     -moz-box-shadow: 1px -1px 13px -4px rgba(0,0,0,0.75);
     box-shadow: 1px -1px 13px -4px rgba(0, 0, 0, 0.877);
+}
+
+.card-title h5 {
+    padding: 8px 8px;
+    margin: 0;
+    text-align: center;
+}
+
+.card-body {
+    padding: 10px 20px 20px 20px;
 }
 
 #carousel {
@@ -46,4 +63,13 @@ body {
     text-decoration: none;
     color: white;
     font-size: 25px;
+}
+
+.cardDesign {
+    align-content: center;
+    text-align: left;
+}
+
+.card-image {
+    text-align: center;
 }

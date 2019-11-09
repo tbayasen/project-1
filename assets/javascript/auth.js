@@ -57,6 +57,8 @@ $('#signup-btn').on('click', function () {
     $('.modal').modal('hide');
 
     $('.validate').val('');
+
+    
 });
 
 // Login
@@ -75,7 +77,7 @@ $('#login-btn').on('click', function () {
     $('.modal').modal('hide');
 
     $('.validate').val('');
-
+    checkAccount()
 });
 
 // Logout
@@ -85,6 +87,6 @@ $('#logout').on('click', function () {
         $("#signup").show();
         $("#login").show();
         $("#logout").hide();
-
+        
     });
 });

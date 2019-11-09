@@ -1,11 +1,9 @@
 //get and convert local storage
 var businessArr = localStorage.getItem("businessDetails");
-var businessIDArr = localStorage.getItem("businessIDArr");
 var userSignIn = localStorage.getItem("userSignin");
 var userLoc = localStorage.getItem("userLocation");
 var locationConverted = JSON.parse(userLoc);
 var businessConverted = JSON.parse(businessArr);
-var idConverted = JSON.parse(businessIDArr);
 
 function checkAccount() {
     if (userSignIn === 'true') {
@@ -37,6 +35,11 @@ function renderGrid() {
         var distanceMiles;
         var distancekm;
 
+        console.log(longitude);
+        console.log(latitude);
+        console.log(userLong);
+        console.log(userLat);
+
         function deg2rad(deg) {
             return deg * (Math.PI / 180)
         }
@@ -55,10 +58,10 @@ function renderGrid() {
             distancekm = distancekm.toFixed(2);
             distanceMiles = distancekm * 0.62137;
             distanceMiles = distanceMiles.toFixed(2);
-
+            console.log(distancekm);
+            console.log(distanceMiles);
             return distanceMiles;
         }
-
         calcDistance(distanceMiles);
 
         var displayText =
@@ -102,6 +105,5 @@ function renderGrid() {
         cardBody.html();
     };
 }
-
 
 renderGrid();

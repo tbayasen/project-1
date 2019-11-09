@@ -1,6 +1,9 @@
 var apiKey = "ZsEY8dcQ0p5gM5wS14qBOA0jMe1yhAFEoJk3bqurtkal1J_CAQGzqjUg9VCV9UlzoUXfgPbOeaXps_aaPVg3KJUZ4F3SNS1NCW3ni9IAPPTNn-VVtjEml18Thua9XXYx"
 var yelpAPI = "";
 var yelpSearchURL = "";
+var yelpDetailsURL = "";
+var yelpReviewsURL = "";
+var autocomplete = "";
 var limit = 20;
 
 var apiKey = "wAobknQgAx21mQJuLhGdCe0MSHJtlI5TX6xNyV1t_0RGxDxGNIueYFAiv_nAxJe8EpHLwX07x2cbBmedIPXMKZSoUqtrpkiLW8gRxeqq_xftq0DWxoQhdeAnSuG9XXYx"
@@ -14,7 +17,7 @@ var userCoords = [];
 var geoSuccess = function (position) {
     var userLat = position.coords.latitude;
     var userLong = position.coords.longitude;
-    userCoords.push({ userLat, userLong });
+    userCoords.push({userLat, userLong});
 
     localStorage.setItem("userLocation", JSON.stringify(userCoords));
     console.log(userLat)
@@ -27,6 +30,7 @@ navigator.geolocation.getCurrentPosition(geoSuccess);
 $("#subbtn").on("click", function () {
     //prevent refresh on user press 'enter'
     event.preventDefault();
+    //clear local storage
 
     //pull and store values from input form
     cuisine = $("#cuisine-type").val().trim();
@@ -43,8 +47,6 @@ $("#subbtn").on("click", function () {
         },
         dataType: 'json',
     }).then(function (searchResults) {
-        localStorage.setItem("businessArr", JSON.stringify(searchResults));
-
         //set variables
         var count = 0;
         var results = searchResults.businesses;
@@ -75,14 +77,13 @@ $("#subbtn").on("click", function () {
             //push values to arrays
             businessDetails.push({ name, address, zip, longitude, latitude, phoneNum, price, rating, businessID, photo });
         }
-
+        console.log(businessDetails);
         //store data in local storage
         localStorage.setItem("businessDetails", JSON.stringify(businessDetails));
-
     });
 
     var timer = setTimeout(function () {
         location.href = "Separate-Pages/food.html";
-    }, 3000);
+    }, 5000);
     timer();
 });
